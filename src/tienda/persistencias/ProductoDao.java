@@ -136,7 +136,7 @@ public final class ProductoDao extends DAO{
 
     public Collection<Producto> listarProductosSegunPreco (int valor1, int valor2) throws Exception {
         try {
-            String sql = "SELECT * FROM producto WHERE precio = ";
+            String sql = "SELECT * FROM producto WHERE precio BETWEEN " + valor1 +"AND" + valor2 +";";
             consultarBase(sql);
 
             Producto p = null;
@@ -152,6 +152,55 @@ public final class ProductoDao extends DAO{
             }
             desconectarBase();
             return productos;
+
+        }catch (Exception e) {
+            desconectarBase();
+            throw e;
+        }
+    }
+
+    public ArrayList<Producto> listarSegunString  (String str) throws Exception {
+
+        try {
+        String sql = "SELECT * from producto WHERE nombre LIKE % '"+ str + "'% ;";
+        consultarBase(sql);
+
+            Producto p = null;
+             ArrayList<Producto> productos = new ArrayList<>();
+
+            while (resultado.next()) {
+                p = new Producto();
+                p.setId(resultado.getInt(1));
+                p.setNombre(resultado.getString(2));
+                p.setPrecio(resultado.getDouble(3));
+                p.setIdFabricante(resultado.getInt(4));
+
+                productos.add(p);
+            }
+            desconectarBase();
+            return productos;
+        }catch (Exception e) {
+            desconectarBase();
+            throw e;
+        }
+    }
+
+    public Producto productoMasBarato () throws Exception {
+        try {
+        String sql = "SELECT nombre ,precio FROM producto WHERE precio = (SELECT MIN(precio) " +
+                " FROM producto;);";
+        consultarBase(sql);
+            Producto p = null;
+            while (resultado.next()) {
+
+                p = new Producto();
+
+                p.setNombre(resultado.getString(2));
+                p.setPrecio(resultado.getDouble(3));
+
+            }
+            desconectarBase();
+            return p;
 
         }catch (Exception e) {
             desconectarBase();

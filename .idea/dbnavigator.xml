@@ -21,11 +21,16 @@
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="16b3a590-f8b8-420a-90c8-003415957b57" object-ref="schemas/tienda/tables/producto" />
+      <object connection-id="16b3a590-f8b8-420a-90c8-003415957b57" object-ref="consoles/Connection" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="16b3a590-f8b8-420a-90c8-003415957b57" dataset="tienda.producto" active-filter-id="" />
+    <filter-actions connection-id="16b3a590-f8b8-420a-90c8-003415957b57" dataset="tienda.producto" active-filter-id="">
+      <filter id="b8bc0363-5a22-4a9d-a3ff-261b25ca9462" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="codigo" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="16b3a590-f8b8-420a-90c8-003415957b57" dataset="tienda.fabricante" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
@@ -46,7 +51,7 @@
           <url-type value="DATABASE" />
           <host value="localhost" />
           <port value="3306" />
-          <database value="mysql" />
+          <database value="tienda" />
           <tns-folder value="" />
           <tns-profile value="" />
           <type value="USER_PASSWORD" />

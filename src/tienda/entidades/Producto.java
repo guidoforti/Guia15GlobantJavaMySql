@@ -7,6 +7,7 @@ public class Producto {
 
     private Double precio;
 
+
     private int idFabricante;
 
     public Producto() {
@@ -17,7 +18,8 @@ public class Producto {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
-        this.idFabricante = idFabricante;
+
+        this.idFabricante= idFabricante;
     }
 
     public Integer getId() {
@@ -44,11 +46,23 @@ public class Producto {
         this.precio = precio;
     }
 
+
+
     public int getIdFabricante() {
         return idFabricante;
     }
 
-    public void setIdFabricante( int idFabricante) {
+    public void setIdFabricante(int idFabricante) {
         this.idFabricante = idFabricante;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", precio=" + precio +
+                ", idFabricante=" + idFabricante +
+                '}';
     }
 }
